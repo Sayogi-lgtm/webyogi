@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Pendaftaran</title>
+  <style>
+    /* Reset dasar */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f8ff;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background-color: #004d80;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar h1 {
+      font-size: 1.3em;
+      letter-spacing: 1px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #ffd700;
+    }
+
+    /* ===== GRID UTAMA ===== */
+    .container {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      min-height: calc(100vh - 60px); /* sisakan ruang navbar */
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background-color: #0066a2;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #0077b6;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #0099e6;
+    }
+
+    /* Main content */
+    .main {
+      background-color: white;
+      padding: 40px;
+    }
+
+    .main h1 {
+      color: #004d80;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: grid;
+      gap: 15px;
+      max-width: 500px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+      width: 100%;
+    }
+
+    button {
+      background-color: #004d80;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #0077b6;
+    }
+
+    /* Responsif untuk HP */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
+      .main {
+        padding: 20px;
+      }
+
+      .navbar ul {
+        display: none; /* bisa diubah jadi menu dropdown jika mau */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <h1>Klinik Sehat</h1>
+    <ul>
+      <li><a href="#">Beranda</a></li>
+      <li><a href="#">Tentang</a></li>
+      <li><a href="#">Layanan</a></li>
+      <li><a href="#">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- Grid Layout -->
+  <div class="container">
+    <!-- Sidebar Menu -->
+    <aside class="sidebar">
+      <h2>Menu</h2>
+      <a href="#">Dashboard</a>
+      <a href="#">Pendaftaran</a>
+      <a href="#">Data Pasien</a>
+      <a href="#">Laporan</a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <h1>Formulir Pendaftaran Pasien</h1>
+      <form>
+        <label for="nama">Nama Lengkap</label>
+        <input type="text" id="nama" placeholder="Masukkan nama lengkap" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Masukkan email" required>
+
+        <label for="telepon">Nomor Telepon</label>
+        <input type="tel" id="telepon" placeholder="08xxxxxxxxxx" required>
+
+        <label for="gender">Jenis Kelamin</label>
+        <select id="gender" required>
+          <option value="">-- Pilih --</option>
+          <option value="laki-laki">Laki-laki</option>
+          <option value="perempuan">Perempuan</option>
+        </select>
+
+        <label for="alamat">Alamat</label>
+        <textarea id="alamat" rows="3" placeholder="Masukkan alamat lengkap" required></textarea>
+
+        <button type="submit">Daftar Sekarang</button>
+      </form>
+    </main>
+  </div>
+</body>
+</html>
